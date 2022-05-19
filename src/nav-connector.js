@@ -9,6 +9,7 @@ const testConnection = require('../src/test-connection.js');
 const queryInvoiceData = require('../src/query-invoice-data.js');
 const queryInvoiceDigest = require('../src/query-invoice-digest');
 const queryTaxpayer = require('../src/query-taxpayer.js');
+const rateLimit = require('axios-rate-limit');
 
 /** Class representing a NAV online interface.
  */
@@ -21,6 +22,7 @@ module.exports = class NavConnector {
    * @param {string} [params.baseURL=https://api.onlineszamla.nav.gov.hu/invoiceService/v3/] Axios baseURL.
    * @param {number} [params.timeout=70000] Axios default timeout integer in milliseconds.
    */
+
   constructor({
     technicalUser,
     softwareData,
